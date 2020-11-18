@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Routes from './config/Routes'
 import './App.css'
 import UserModel from './models/user'
+import GoalList from './components/GoalList'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('id'))
@@ -34,7 +35,8 @@ function App() {
         currentUser={ currentUser }
         storeUser={ storeUser }
       />
-      <Footer />
+      {/* <GoalList /> */}
+      {/* <Footer /> */}
     </div>
   );
 }
