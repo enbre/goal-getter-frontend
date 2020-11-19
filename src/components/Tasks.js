@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 
-const Tasks = () => {
-   
-   
+const Tasks = (props) => {
+
+
+
+
+
    return (
-      <div>
-         <h3>This is a task</h3>
-      </div>
+     
+         <table class="table">
+             <tbody>
+               <tr>
+                  <td>John</td>
+                  <td>Doe</td>
+                  <td>john@example.com</td>
+               </tr>
+            </tbody>
+         </table>
+
+            
+      
    )
 }
 
