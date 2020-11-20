@@ -15,7 +15,6 @@ function App() {
 
   const logout = (event) => {
     event.preventDefault()
-
     localStorage.removeItem('id')
 
     UserModel.logout()
@@ -26,7 +25,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header 
+        
+        <Header 
+        
         currentUser={ currentUser } 
         logout={ logout }
       />
@@ -34,7 +35,8 @@ function App() {
         currentUser={ currentUser }
         storeUser={ storeUser }
       />
-      <Footer />
+ 
+      {/* <Footer /> */}
     </div>
   );
 }
