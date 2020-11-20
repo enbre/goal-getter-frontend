@@ -3,8 +3,8 @@ import Tasks from './Tasks'
 // const URL = "http://localhost:4000"
 
 const Goals = (props) => {
-   
-   
+
+
    // const [tasks, setTasks] = useState([])
 
 
@@ -15,16 +15,25 @@ const Goals = (props) => {
 
    //    setTasks(taskArray)
    // }
-      
+
    // useEffect(()=>{
    //    getTasks()
    // },[])
 
 
-   return(
-      <div>
-         <h2>This is goal.js</h2>
-         <Tasks />
+   return (
+      <div >
+         <div class="card border-dark w-40" style={{width: "18rem"}}>
+            <div class="card-body">
+               <h3 class="card-title">{props.goal.title}</h3>
+               <p class="card-text">Add a new task</p>
+               <a href="#" class="btn btn-outline-info btn-sm">Add Task</a>
+            </div>
+         </div>
+
+
+     
+         {/* <Tasks /> */}
 
       </div>
    )

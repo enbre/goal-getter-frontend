@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+body{
+  background-color: lavender;
+
+}
+
+.container{
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.card{
+  margin: 30px;
+  height: 200px;
+}

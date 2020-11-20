@@ -1,17 +1,16 @@
 import React from 'react'
 import Goals from './Goals'
 
-const GoalList= () => {
-   // let goals =[]
+const GoalList= (props) => {
+   let goals = props.goals.map((goal, i) => {
+      return <Goals key={i} goal={ goal}/>
+   })
+   
 
-   // for (let i = 0; i< goals; i++){
-   //    goals.push(<Goal key={i}/>)
-   // }
-
-   return (
-      <div>
-         {/* { goals } */}
-         <Goals />
+    return (
+      <div className="d-flex container" style={{flexDirection: "row"}}>
+         { goals }
+  
       </div>
    )
 }

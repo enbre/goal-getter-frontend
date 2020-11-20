@@ -4,12 +4,12 @@ const URL = "http://localhost:4000"
 
 export default class GoalModel {
   static all = () => {
-    return fetch(`${url}/profile`).then(res => res.json())
+    return fetch(`${URL}/goals`).then(res => res.json())
   }
 
 
   static create(goalData) {
-    return fetch(`${URL}/profile/${id}`, {
+    return fetch(`${URL}/goals`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -20,18 +20,18 @@ export default class GoalModel {
 
 
   static update = async (goalData) => {
-    const res = await fetch (`${url}/profile/${goalData.id}`,{
+    const res = await fetch (`${URL}/goals/${goalData.id}`,{
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(gameData)
+      body: JSON.stringify(goalData)
     }) 
     return res.json()
   }
 
   static delete = (goalId) => {
-    return fetch (`${url}/profile/${goalId}`,{
+    return fetch (`${URL}/goals/${goalId}`,{
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"

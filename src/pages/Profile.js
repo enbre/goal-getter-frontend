@@ -3,7 +3,7 @@ import CreateGoals from '../components/CreateGoals';
 import GoalList from '../components/GoalList';
 import GoalModel from '../models/goal'
 
-class Profile extends Component() {
+class Profile extends Component {
   state = {
     goals: []
   }
@@ -15,26 +15,30 @@ class Profile extends Component() {
   fetchData = () => {
     // gets 'all' function from models/Todo to render initial empty todo list
     GoalModel.all().then((res) => {
+      console.log(res)
       this.setState({
-        goals: res.data.goals
+        goals: res.goals
       });
     });
   };
 
   createGoal = (goal) => {
     // creates new Todo object
+    console.log(goal)
     let newGoal = {
-      body: goal,
+      userId: this.props.currentUser,
+      title: goal,
       completed: false
     }
     // gets 'create' function from models/Todo to create new todo item, add it to the todos array (this.state), and re-render page
     GoalModel.create(newGoal).then((res) => {
       // gets current state of Todos array
-      let goal = this.state.goal
+      let goal = this.state.goals
+      console.log(res)
       // adds new Todo object to todos state
-      goal.push(res.data)
+      goal.push(res.goal)
       // and sets it to state, which re-renders it
-      this.setState({ goals })
+      this.setState({ goals: goal })
     })
   }
 
@@ -66,9 +70,10 @@ class Profile extends Component() {
 
 
   render() {
+    console.log('line 73',this.props)
     return (
       <div className='container'>
-        <h1>Profile.js of user with ID {props.currentUser} </h1>
+        <h3>Profile of user with ID {this.props.currentUser} </h3>
         <CreateGoals 
           createGoal={this.createGoal} 
         />
