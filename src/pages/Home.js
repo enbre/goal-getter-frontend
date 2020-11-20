@@ -3,7 +3,8 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to PERN Auth</h1>
+      <h3>Goal Getter</h3>
+      <p>A tool to keep you organized and motivated</p>
     </div>
   );
 }

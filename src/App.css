@@ -1,10 +1,18 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
 }
 
 body{
   background-color: lavender;
+  
+}
 
+button{
+  margin: 0 10px;
+}
+
+.App {
+  text-align: center;
 }
 
 .container{
@@ -14,5 +22,12 @@ body{
 
 .card{
   margin: 30px;
-  height: 200px;
+  /* height: 200px; */
+}
+
+.card-title{
+  display: inline;
+}
+.card-text{
+  display: inline;
 }
