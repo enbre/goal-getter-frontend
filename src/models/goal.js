@@ -33,9 +33,9 @@ export default class GoalModel {
   static delete = (goalId) => {
     return fetch (`${URL}/goals/${goalId}`,{
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      // headers: {
+      //   "Content-Type": "application/json"
+      // },
     })
       .then(res => res.json())
   }

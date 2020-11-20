@@ -15,7 +15,7 @@ class Profile extends Component {
   fetchData = () => {
     // gets 'all' function from models/Todo to render initial empty todo list
     GoalModel.all().then((res) => {
-      console.log(res)
+      // console.log(res)
       this.setState({
         goals: res.goals
       });
@@ -70,7 +70,7 @@ class Profile extends Component {
 
 
   render() {
-    console.log('line 73',this.props)
+    // console.log('line 73, profile.js',this.props)
     return (
       <div className='container'>
         <h3>Profile of user with ID {this.props.currentUser} </h3>

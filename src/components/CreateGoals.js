@@ -33,7 +33,7 @@ class CreateGoals extends Component {
                   placeholder="Add a new goal!"
                   value={this.state.goal}
                />
-               <button type='submit' id="addGoal" className="btn">Add</button>
+               <button type='submit' id="addGoal" className="btn btn-info btn-sm">Add</button>
             </form>
          </div>
       )
