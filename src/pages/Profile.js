@@ -27,6 +27,7 @@ class Profile extends Component {
     console.log(goal)
     let newGoal = {
       userId: this.props.currentUser,
+      // userName: this.props.currentUserName,
       title: goal,
       completed: false
     }
@@ -70,10 +71,12 @@ class Profile extends Component {
 
 
   render() {
-    // console.log('line 73, profile.js',this.props)
+    // console.log('line 74, profile.js',typeof(this.props.currentUserName))
+    // console.log('line 75, profile.js',this.props.currentUserName)
+    // console.log('line 76, profile.js',this.props.currentUser)
     return (
       <div className='container'>
-        <h3>Profile of user with ID {this.props.currentUser} </h3>
+        <h3 style={{textTransform: "uppercase" }}>  {this.props.currentUserName}'s Goals </h3>
         <CreateGoals 
           createGoal={this.createGoal} 
         />

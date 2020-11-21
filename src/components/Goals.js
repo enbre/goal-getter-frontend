@@ -2,25 +2,30 @@ import React, { useState, useEffect } from "react"
 import Tasks from './Tasks'
 import GoalModel from '../models/goal'
 import Profile from "../pages/Profile"
+import UpdateGoals from './UpdateGoals'
+
 // const URL = "http://localhost:4000"
 
 const Goals = (props) => {
 
 
    // const [tasks, setTasks] = useState([])
-
-
    // async function getTasks(){
    //    const res = await fetch(`URL/${currrentUser}`)
-
    //    const taskArray = await res.json()
-
    //    setTasks(taskArray)
    // }
-
    // useEffect(()=>{
    //    getTasks()
    // },[])
+
+   const handleUpdate = (event) => {
+      console.log()
+      GoalModel.update(props.goal.id)
+
+      window.location = '/profile'
+
+   }
 
    const handleDelete = (event) => {
       // event.preventDefaut()
@@ -30,9 +35,6 @@ const Goals = (props) => {
       // redundant delete function defined in Profile.js:
       // props.deleteGoal(props.goal.id)
       window.location = `/profile`
-
-
-
    }
 
 
@@ -42,17 +44,19 @@ const Goals = (props) => {
             <div className="card-body">
                <div className="card-goal">
                   <h4 className="card-title">{props.goal.title}</h4>
-                  <button className="btn btn-outline-info btn-sm" >Edit</button>
+                  <button className="btn btn-outline-info btn-sm" data-toggle="modal" data-target={`#editModal${props.goal.id}`}>Edit</button>
+                  <UpdateGoals title={props.goal.title} id={props.goal.id}/>
                   <button className="btn btn-outline-info btn-sm" onClick={handleDelete}>Delete</button>
                </div>
                   <hr/>
-               <div className="card-task">
+               {/* <div className="card-task">
                   <p className="card-text">Add a new task</p>
                   <button className="btn btn-outline-info btn-sm">Add Task</button>
-               </div>   
+               </div>    */}
             </div>
          </div>
 
+ 
 
      
          {/* <Tasks /> */}
