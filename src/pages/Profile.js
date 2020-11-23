@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import CreateGoals from '../components/CreateGoals';
 import GoalList from '../components/GoalList';
 import GoalModel from '../models/goal'
@@ -23,39 +23,33 @@ class Profile extends Component {
   };
 
   createGoal = (goal) => {
-    // creates new Todo object
-    console.log(goal)
+    console.log('line 26 profile.js',goal)
     let newGoal = {
       userId: this.props.currentUser,
       // userName: this.props.currentUserName,
       title: goal,
       completed: false
     }
-    // gets 'create' function from models/Todo to create new todo item, add it to the todos array (this.state), and re-render page
     GoalModel.create(newGoal).then((res) => {
-      // gets current state of Todos array
+      // gets current state of Goal array
       let goal = this.state.goals
       console.log(res)
-      // adds new Todo object to todos state
+      // adds new Goal object to goal state
       goal.push(res.goal)
       // and sets it to state, which re-renders it
       this.setState({ goals: goal })
     })
   }
 
-  // After the todo delete response is sent back from the server, we find the corresponding entry for the todo in our todos state array and remove it.
-  deleteGoal = (goal) => {
-    // 'delete' function is defined in models/Todo and is passed to TodosContainer as props
-    GoalModel.delete(goal).then((res) => {
-      // search the todos array for the selected todo (passed as prop from Todo through Todos)
-      let goals = this.state.goals.filter((goal) => {
-        // i think this removes the selected todo from the todo array
-        return goal.id !== res.data.id
-      })
-      // sets state and re-renders component
-      this.setState({ goals })
-    })
-  }
+  // this function is from the todos lab. currently not being used, but it is functional if we need to copy it for tasks.
+  // deleteGoal = (goal) => {
+  //   GoalModel.delete(goal).then((res) => {
+  //     let goals = this.state.goals.filter((goal) => {
+  //       return goal.id !== res.data.id
+  //     })
+  //     this.setState({ goals })
+  //   })
+  // }
 
   updateGoal = goal => {
     const isUpdatedGoal = g => {
@@ -71,19 +65,17 @@ class Profile extends Component {
 
 
   render() {
-    // console.log('line 74, profile.js',typeof(this.props.currentUserName))
-    // console.log('line 75, profile.js',this.props.currentUserName)
-    // console.log('line 76, profile.js',this.props.currentUser)
+
     return (
       <div className='container'>
-        <h3 style={{textTransform: "uppercase" }}>  {this.props.currentUserName}'s Goals </h3>
-        <CreateGoals 
-          createGoal={this.createGoal} 
+        <h3 style={{ textTransform: "uppercase" }}>  {this.props.currentUserName}'s Goals </h3>
+        <CreateGoals
+          createGoal={this.createGoal}
         />
         <GoalList
           goals={this.state.goals}
           updateGoal={this.updateGoal}
-          deleteGoal={this.deleteGoal}
+        // deleteGoal={this.deleteGoal}
         />
       </div>
     )
