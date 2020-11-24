@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import GoalModel from '../models/goal'
 
-const UpdateGoals = (props) => {
+const UpdateGoal = (props) => {
    const [goal, setGoal] = useState(props.goal)
    // console.log('line6 updateGoals',goal)     // lists all goals passed from goals.js
 
@@ -9,10 +9,10 @@ const UpdateGoals = (props) => {
    const handleSubmit = (event) => {
       // event.preventDefault()
       // props.updateGoal(goal)
-      console.log('line 12 updateGoals.js', goal.title)
+      console.log('line 12 updateGoal.js', goal.title)
 
       // GoalModel.update(goal.id)
-      console.log('line 15 updateGoals.js', goal)
+      console.log('line 15 updateGoal.js', goal)
       // debugger
 
       //    .then(
@@ -84,4 +84,4 @@ const UpdateGoals = (props) => {
 
 }
 
-export default UpdateGoals
+export default UpdateGoal

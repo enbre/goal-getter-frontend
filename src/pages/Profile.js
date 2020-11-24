@@ -75,6 +75,7 @@ class Profile extends Component {
         <GoalList
           goals={this.state.goals}
           updateGoal={this.updateGoal}
+          currentUser={this.props.currentUser}
         // deleteGoal={this.deleteGoal}
         />
       </div>
