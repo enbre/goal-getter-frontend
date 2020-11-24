@@ -68,7 +68,7 @@ class Profile extends Component {
 
     return (
       <div className='container'>
-        <h3 style={{ textTransform: "uppercase" }}>  {this.props.currentUserName}'s Goals </h3>
+        <h3>  {this.props.currentUserName}'s Goals </h3>
         <CreateGoals
           createGoal={this.createGoal}
         />

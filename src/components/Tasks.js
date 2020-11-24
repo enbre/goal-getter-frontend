@@ -14,6 +14,7 @@ const Tasks = (props) => {
                   <td>John</td>
                   <td>Doe</td>
                   <td>john@example.com</td>
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck2"></input>
                </tr>
             </tbody>
          </table>
