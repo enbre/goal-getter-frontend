@@ -1,9 +1,16 @@
 import React from 'react'
-import Goals from './Goals'
+import Goal from './Goal'
 
 const GoalList= (props) => {
    let goals = props.goals.map((goal, i) => {
-      return <Goals key={i} goal={ goal} deleteGoal={props.deleteGoal}/>
+      return <Goal 
+               key={i} 
+               goal={ goal} 
+               currentUser={props.currentUser}
+               // 
+               // deleteGoal={props.deleteGoal} 
+               updateGoal={props.updateGoal}
+            />
    })
    
 

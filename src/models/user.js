@@ -15,7 +15,7 @@ export default class UserModel {
 
   
   static login(credentials) {
-    // remember to send authorization headers
+    // remember to send authorization headers 
     return fetch(`${URL}/auth/login`, {
       method: "POST",
       headers: {

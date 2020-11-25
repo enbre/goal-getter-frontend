@@ -21,12 +21,14 @@ const Login = props => {
       email,
       password
     }).then(data => {
-        if (!data.user) {
+        if (!data) {
           console.log('Login Unsuccessful')
           return false
         }
         // storeUser is defined in the app component and passed to Login
-        props.storeUser(data.user)
+        console.log(data)
+        // temporary debugging tool. stops code from loading when insterted "debugger"
+        props.storeUser(data.id, data.name)
       })
       .catch(err => console.log('Login Error', err))
   }

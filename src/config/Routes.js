@@ -9,6 +9,8 @@ import GoalList from '../components/GoalList'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const currentUser = localStorage.getItem('id')
+  const currentUserName = localStorage.getItem('name')
+
   return  <Route { ...rest } render={ props => {
             return currentUser ? <Component { ...rest } { ...props } /> : <Redirect to="/login" />
           }} 
@@ -24,9 +26,10 @@ const Routes = (props) => (
                 {...routeComponentProps}  
                 currentUser={ props.currentUser } 
                 storeUser={ props.storeUser }
+                currentUserName={props.currentUserName}
                 />
    } } />
-    <PrivateRoute path='/profile' component={ Profile } currentUser={ props.currentUser } />
+    <PrivateRoute path='/profile' component={ Profile } currentUser={ props.currentUser } currentUserName={props.currentUserName}/>
   </Switch>
 )
 

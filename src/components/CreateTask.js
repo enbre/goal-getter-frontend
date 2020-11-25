@@ -1,38 +1,40 @@
 import React, { Component } from 'react'
 
-class CreateGoals extends Component {
+class CreateTask extends Component {
 
    state = {
-      goal: ''
+      task: ''
    }
 
    onInputChange = (event) => {
       this.setState({
-         goal: event.target.value
+         task: event.target.value
       })
    }
 
    onFormSubmit = (event) => {
       event.preventDefault()
-      let goal = this.state.goal
+      let task = this.state.task
       // 'createGoal' function is defined in Profile, and passed to this component as props
-      this.props.createGoal(goal)
+      // will need to copy & modify some functions to either task or this file
+      this.props.createTask(task)
       this.setState({
-         goal: ''
+         task: ''
       })
    }
 
    render() {
       return (
-         <div className="create-goals">
-            <form onSubmit={this.onFormSubmit} id="goalForm">
-               <div className="col-6 mx-auto ">
+
+         <div className="create-task">
+            <form onSubmit={this.onFormSubmit} id="taskForm">
+               <div className="col-12 mx-auto ">
                   <div className="input-group  mb-3">
                      <input
                         onChange={this.onInputChange}
                         type="text"
-                        placeholder="Add a new goal!"
-                        value={this.state.goal}
+                        placeholder="Add a new task!"
+                        value={this.state.task}
                         className="form-control"
                         aria-describedby="button-addon2-sm"
                      />
@@ -54,4 +56,4 @@ class CreateGoals extends Component {
    }
 }
 
-export default CreateGoals
+export default CreateTask

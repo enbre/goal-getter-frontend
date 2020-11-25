@@ -5,17 +5,24 @@ import Routes from './config/Routes'
 import './App.css'
 import UserModel from './models/user'
 
-function App() {
+const App= () => {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('id'))
 
-  const storeUser = (userId) => {
+  const [currentUserName, setCurrentUserName] = useState(localStorage.getItem('name'))
+
+
+  const storeUser = (userId, userName) => {
     localStorage.setItem('id', userId)
-    setCurrentUser( userId )
+    localStorage.setItem('name', userName)
+    setCurrentUser(userId)
+    setCurrentUserName(userName)
   }
+
 
   const logout = (event) => {
     event.preventDefault()
     localStorage.removeItem('id')
+    localStorage.removeItem('name')
 
     UserModel.logout()
       .then(res => {
@@ -23,20 +30,25 @@ function App() {
       })
   }
 
+
+
   return (
     <div className="App">
-        
-        <Header 
-        
-        currentUser={ currentUser } 
-        logout={ logout }
+
+      <Header
+
+        currentUser={currentUser}
+        currentUserName={currentUserName}
+        logout={logout}
       />
-      <Routes 
-        currentUser={ currentUser }
-        storeUser={ storeUser }
+      <Routes
+        currentUser={currentUser}
+        currentUserName={currentUserName}
+
+        storeUser={storeUser}
       />
- 
-      {/* <Footer /> */}
+
+      <Footer />
     </div>
   );
 }
