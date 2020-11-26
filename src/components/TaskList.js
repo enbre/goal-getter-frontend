@@ -23,12 +23,13 @@ const TaskList = (props) => {
       <>
       <p className="task-form">
        
-         <button class="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+         <button className="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
            See your tasks
          </button>
          </p>
-         <div class="collapse" id="collapseExample">
+         <div className="collapse" id="collapseExample">
          <div >
+            {/* <Task task={task}/> */}
             <Task />
          </div>
       </div>

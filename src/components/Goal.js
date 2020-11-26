@@ -13,16 +13,16 @@ const Goal = (props) => {
 
    const currentUser = props.currentUser
 
-   async function getTasks() {
+   const getTasks = async () => {
       TaskModel.all(currentUser.id)
       const res = await fetch(`URL/${currentUser}`)
       const taskArray = await res.json()
       setTasks(taskArray)
    }
 
-   useEffect(() => {
-      getTasks()
-   }, [])
+   // useEffect(() => {
+   //    getTasks()
+   // }, [])
 
    const createTask = (task) => {
       let newTask = {
@@ -61,9 +61,6 @@ const Goal = (props) => {
       // event.preventDefaut()
       console.log('line 33 goals.js', props.goal)
       GoalModel.delete(props.goal.id)
-
-      // redundant delete function defined in Profile.js:
-      // props.deleteGoal(props.goal.id)
       window.location = `/profile`
    }
 

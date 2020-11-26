@@ -7,24 +7,24 @@ const UpdateGoal = (props) => {
 
    
    const handleSubmit = (event) => {
-      // event.preventDefault()
-      // props.updateGoal(goal)
-      console.log('line 12 updateGoal.js', goal.title)
-
-      // GoalModel.update(goal.id)
-      console.log('line 15 updateGoal.js', goal)
-      // debugger
-
+      event.preventDefault()
+      console.log('line 11 updateGoal.js', goal)
+      
+      GoalModel.update(setGoal({ value : event.target.value}))
+      
+      console.log('line 12 updateGoal.js', goal)
+      debugger
       //    .then(
       //       data => {
       //       this.props.history.push(`/goals/${goal.id}`)
       // })
-      // console.log('line 22 updateGoal.js', goal)
+      console.log('line 22 updateGoal.js', goal)
       // debugger
       // window.location = '/profile'
    }
 
    const handleChange = (event) => {
+      console.log(event.target.value)
       // don't think we need this first section if it's only a text field we are updating
       // if (event.target.type !== 'text'){
       //    setGoal( {completed: !this.state.completed})
@@ -47,26 +47,23 @@ const UpdateGoal = (props) => {
                   </button>
                </div>
                <div className="modal-body">
-                  {/* <form onSubmit={handleSubmit}> */}
-                  <form >
+                  <form onSubmit={handleSubmit}>
+                  {/* <form > */}
                      <input
                         type="text"
                         className="form-control"
                         style={{ margin: "10px" }}
                         value={goal.title}
-                        // placeholder={props.title} 
-                        // onChange={handleChange}
-                        onChange={e => setGoal(e.target.value)}
+                        onChange={handleChange}
+                        // onChange={e => setGoal(e.target.value)}
                      >
 
                      </input>
                      <button type="button" className="btn btn-outline-info btn-sm" data-dismiss="modal">Close</button>
-                     {/* <button type="button" className="btn btn-outline-info btn-sm" onClick={props.handleUpdate}>Save changes</button> */}
                      <button
-                        type="button"
+                        type="submit"
                         className="btn btn-outline-info btn-sm"
                         onClick={props.handleUpdate}
-                        // onClick={handleSubmit}
                         // onClick={() => handleSubmit(goal)}
 
                      >Save changes
