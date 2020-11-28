@@ -32,7 +32,7 @@ const Goal = (props) => {
       }
       TaskModel.create(newTask).then((res) => {
          // gets current state of task array
-         console.log('line 38 goal.js', res)
+         console.log('line 35 goal.js', res)
          // console.log(this.state)
          // debugger
          TaskModel.all(res)
@@ -65,9 +65,9 @@ const Goal = (props) => {
                   <button className="btn btn-outline-info btn-sm goals-button" onClick={handleDelete}>Delete</button>
                </div>
                <hr />
-               {/* <TaskList tasks={tasks}/> */}
+               <TaskList tasks={tasks}/>
                <hr />
-               {/* <CreateTask createTask={createTask} /> */}
+               <CreateTask createTask={createTask} />
             </div>
          </div>
       </div>

@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CreateGoal from '../components/CreateGoal';
 import GoalList from '../components/GoalList';
 import GoalModel from '../models/goal'
+import {AuthContext} from '../contexts/AuthContext';
 
-const Profile = ({ currentUser, currentUserName }) => {
+
+const Profile = () => {
   const [goals, setGoals] = useState([])
+  const {currentUser, currentUserName} = useContext(AuthContext)
 
   useEffect(() => {
     fetchData()

@@ -2,6 +2,20 @@ import React from 'react'
 import Task from './Task'
 
 const TaskList = (props) => {
+   
+  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    let tasks = props.tasks.map((task, i) => {
       return <Task
          key={i}
@@ -12,7 +26,7 @@ const TaskList = (props) => {
       />
    })
 
-   console.log('line15,tasklist',tasks)
+   // console.log('line15,tasklist',tasks)
 
 
    return (

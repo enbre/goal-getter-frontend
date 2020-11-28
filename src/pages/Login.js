@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import UserModel from '../models/user'
+import {AuthContext} from '../contexts/AuthContext';
 
-const Login = props => {
+const Login = () => {
+  const {currentUser, storeUser} = useContext(AuthContext)
   let [email, setEmail] = useState('')
   let [password, setPassword] = useState('')
 
@@ -28,13 +30,13 @@ const Login = props => {
         // storeUser is defined in the app component and passed to Login
         console.log(data)
         // temporary debugging tool. stops code from loading when insterted "debugger"
-        props.storeUser(data.id, data.name)
+        storeUser(data.id, data.name)
       })
       .catch(err => console.log('Login Error', err))
   }
 
   // if user is logged in, redirect
-  if (props.currentUser) return <Redirect to='/profile' />
+  if (currentUser) return <Redirect to='/profile' />
 
   return (
     <div>
