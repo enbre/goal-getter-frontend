@@ -5,7 +5,6 @@ import TaskModel from '../models/task'
 import UpdateGoal from './UpdateGoal'
 import CreateTask from "./CreateTask"
 
-// const URL = "http://localhost:4000"
 
 const Goal = (props) => {
 
@@ -31,11 +30,9 @@ const Goal = (props) => {
          goalId: props.goal.id,
          completed: false
       }
-      console.log('line 54 profile.js', newTask)
-      // debugger
       TaskModel.create(newTask).then((res) => {
          // gets current state of task array
-         console.log('line 38 goal.js',res)
+         console.log('line 38 goal.js', res)
          // console.log(this.state)
          // debugger
          TaskModel.all(res)
@@ -47,47 +44,34 @@ const Goal = (props) => {
       })
 
    }
-   const handleUpdate = (event) => {
-      event.preventDefault()
-      console.log('line 23 goals.js', props.goal)
-      GoalModel.update(props.goal)
-      // debugger
-
-      window.location = '/profile'
-
-   }
 
    const handleDelete = (event) => {
       // event.preventDefaut()
-      console.log('line 33 goals.js', props.goal)
       GoalModel.delete(props.goal.id)
-      window.location = `/profile`
+      props.fetchData()
    }
+   return (
+      <div >
+         <div className="card border-dark w-40" style={{ width: "30rem" }}>
+            <div className="card-body">
+               <div className="card-goal">
+                  <h4 className="card-title">{props.goal.title}</h4>
+                  <button className="btn btn-outline-info btn-sm goals-button" data-toggle="modal" data-target={`#editModal${props.goal.id}`}>Edit</button>
+                  <UpdateGoal
 
-return (
-   <div >
-      <div className="card border-dark w-40" style={{ width: "30rem" }}>
-         <div className="card-body">
-            <div className="card-goal">
-               <h4 className="card-title">{props.goal.title}</h4>
-               <button className="btn btn-outline-info btn-sm goals-button" data-toggle="modal" data-target={`#editModal${props.goal.id}`}>Edit</button>
-               <UpdateGoal
-                  title={props.goal.title}
-                  id={props.goal.id}
-                  handleUpdate={props.handleUpdate} //from goal.js
-                  updateGoal={props.updateGoal} // from profile.js
-                  goal={props.goal}
-                  history={props.history} />
-               <button className="btn btn-outline-info btn-sm goals-button" onClick={handleDelete}>Delete</button>
+                     goal={props.goal}
+                     fetchData={props.fetchData}
+                  />
+                  <button className="btn btn-outline-info btn-sm goals-button" onClick={handleDelete}>Delete</button>
+               </div>
+               <hr />
+               {/* <TaskList tasks={tasks}/> */}
+               <hr />
+               {/* <CreateTask createTask={createTask} /> */}
             </div>
-            <hr />
-            <TaskList />
-            <hr />
-            <CreateTask createTask={createTask} />
          </div>
       </div>
-   </div>
-)
+   )
 }
 
 export default Goal

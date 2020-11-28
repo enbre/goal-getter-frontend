@@ -7,7 +7,6 @@ export default class GoalModel {
     return fetch(`${URL}/goals`).then(res => res.json())
   }
 
-
   static create(goalData) {
     return fetch(`${URL}/goals`, {
       method: "POST",
@@ -18,7 +17,6 @@ export default class GoalModel {
     }).then(res => res.json())
   }
 
-
   static update = async (goal) => {
     
     const res = await fetch(`${URL}/goals/${goal.id}`, {
@@ -27,8 +25,7 @@ export default class GoalModel {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(goal)
-    })
-    return res.json()
+    }).then(res => res.json())
   }
 
   static delete = (goalId) => {

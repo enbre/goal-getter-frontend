@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CreateGoals from '../components/CreateGoals';
+import CreateGoal from '../components/CreateGoal';
 import GoalList from '../components/GoalList';
 import GoalModel from '../models/goal'
 
@@ -28,17 +28,16 @@ const Profile = ({ currentUser, currentUserName }) => {
   return (
     <div className='container'>
       <h3>  {currentUserName}'s Goals </h3>
-      <CreateGoals
+      <CreateGoal
         createGoal={createGoal}
       />
       <GoalList
         goals={goals}
-        // updateGoal={updateGoal}
+        fetchData={fetchData}
         currentUser={currentUser}
-      // deleteGoal={deleteGoal}
       />
     </div>
-  )
+  ) 
 }
 
 

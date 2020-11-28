@@ -2,22 +2,21 @@ import React from 'react'
 import Task from './Task'
 
 const TaskList = (props) => {
-   // let tasks = props.tasks.map((task, i) => {
-   //    return <Task
-   //       key={i}
-   //       task={task}
-   //       currentUser={props.currentUser}
-   //    // deleteTask={props.deleteTask} 
-   //    // updateTask={props.updateTask}
-   //    />
-   // })
+   let tasks = props.tasks.map((task, i) => {
+      return <Task
+         key={i}
+         task={task}
+         currentUser={props.currentUser}
+      // deleteTask={props.deleteTask} 
+      // updateTask={props.updateTask}
+      />
+   })
+
+   console.log('line15,tasklist',tasks)
 
 
    return (
-      // <div className="d-flex container" style={{flexDirection: "row"}}>
-      //    { tasks }
 
-      // </div>
 
       
       <>
@@ -29,7 +28,8 @@ const TaskList = (props) => {
          </p>
          <div className="collapse" id="collapseExample">
          <div >
-            {/* <Task task={task}/> */}
+            {tasks}
+            <p>Hard coded task in TaskList!</p>
             <Task />
          </div>
       </div>

@@ -7,9 +7,7 @@ const GoalList= (props) => {
                key={i} 
                goal={ goal} 
                currentUser={props.currentUser}
-               // 
-               // deleteGoal={props.deleteGoal} 
-               updateGoal={props.updateGoal}
+               fetchData={props.fetchData} 
             />
    })
    

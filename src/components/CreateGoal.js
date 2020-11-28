@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class CreateGoals extends Component {
+class CreateGoal extends Component {
 
    state = {
       goal: ''
@@ -20,7 +20,7 @@ class CreateGoals extends Component {
       this.setState({
          goal: ''
       })
-   }
+   } 
 
    render() {
       return (
@@ -54,4 +54,4 @@ class CreateGoals extends Component {
    }
 }
 
-export default CreateGoals
+export default CreateGoal
