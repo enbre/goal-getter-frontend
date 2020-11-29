@@ -6,7 +6,7 @@ import CreateTask from './CreateTask'
 
 const TaskList = (props) => {
    const { currentUser, currentUserName } = useContext(AuthContext)
-
+   // console.log('line 9',props)
    const [tasks, setTasks] = useState([])
 
    useEffect(() => {
@@ -14,24 +14,25 @@ const TaskList = (props) => {
    }, [])
 
    // scoped globally so it can be rendered in return but defined within fetchTasks
-   let allTasks
+   // let allTasks
+   
 
    const fetchTasks = async () => {
       const res = await TaskModel.all()
       // we need some way of filtering so only the tasks connected to a specific goal are called:
-      // if (props.goal.id === task.goalId) {
       setTasks(res.tasks)
-      // }
-      console.log('line 21, tasklist', res)
-      allTasks = tasks.map((task, i) => {
-         return <Task
-            key={i}
-            task={allTasks}
-            fetchTasks={fetchTasks}
-         />
-      })
+      console.log('line 25, tasklist', res.tasks) // gets an array of all tasks, regardless of goalId
+      
+      // if (props.goal.id === res.tasks.goalId) {
+         // allTasks = tasks.map((task, i) => {
+         //    return <Task
+         //    key={i}
+         //    task={task}
+         //    fetchTasks={fetchTasks}
+         // />
+      // })
+   // }
    }
-
 
    const createTask = async (task) => {
       const newTask = {
@@ -41,14 +42,31 @@ const TaskList = (props) => {
       }
       await TaskModel.create(newTask)
          .then((res) => {
-            console.log('line 42 tasklist.js', res)
-            TaskModel.all(res)
+            console.log('line 43 tasklist.js', res.task) // gets the new task created
+            TaskModel.all(res.task)
             tasks.push(res.task)
             fetchTasks()
          })
 
    }
 
+   let allTasks = tasks.map((task, i) => {
+      // if (props.goal.id === res.tasks.goalId) {
+      
+         return <Task
+         key={i}
+         task={task}
+         fetchTasks={fetchTasks}
+      />
+      // }
+   })
+
+
+   const completedTask = (id) =>{
+      setTasks(props.task.completed)
+   }
+
+  
 
    // first pass at this function:
    // const getTasks = async () => {
@@ -68,8 +86,7 @@ const TaskList = (props) => {
          <div className="collapse" id={`collapse${props.goal.id}`}>
             <div >
                {allTasks}
-               <p>Hard coded task in TaskList!</p>
-               {/* <Task /> */}
+               {/* <Task allTasks={allTasks}/> */}
             </div>
          </div>
          <hr />

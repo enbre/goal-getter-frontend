@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
 import UserModel from '../models/user';
 export const AuthContext = createContext();
+
 const AuthContextProvider = (props) => {
     const [currentUser, setCurrentUser] = useState(localStorage.getItem('id'));
     const [currentUserName, setCurrentUserName] = useState(localStorage.getItem('name'));

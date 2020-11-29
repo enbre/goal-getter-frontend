@@ -9,44 +9,7 @@ import { AuthContext } from "../contexts/AuthContext"
 
 const Goal = (props) => {
    const {currentUser,currentUserName} = useContext(AuthContext)
-   // const currentUser = props.currentUser
-
-   // const [tasks, setTasks] = useState([])
-
-
-   // const getTasks = async () => {
-   //    TaskModel.all(currentUser.id)
-   //    const res = await fetch(`URL/${currentUser}`)
-   //    const taskArray = await res.json()
-   //    setTasks(taskArray)
-   // }
-
-   // // useEffect(() => {
-   // //    getTasks()
-   // // }, [])
-
-   // const createTask = (task) => {
-   //    let newTask = {
-
-   //       title: task,
-   //       goalId: props.goal.id,
-   //       completed: false
-   //    }
-   //    TaskModel.create(newTask).then((res) => {
-   //       // gets current state of task array
-   //       console.log('line 35 goal.js', res)
-   //       // console.log(this.state)
-   //       // debugger
-   //       TaskModel.all(res)
-   //       // let task = task
-   //       // // adds new Goal object to goal state
-   //       // tasks.push(res.task)
-   //       // // and sets it to state, which re-renders it
-   //       // setTasks({ tasks: task })
-   //    })
-
-   // }
-
+  
    const handleDelete = (event) => {
       // event.preventDefaut()
       GoalModel.delete(props.goal.id)
