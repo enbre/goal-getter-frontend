@@ -1,56 +1,23 @@
-import React, { useState } from 'react'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Routes from './config/Routes'
-import './App.css'
-import UserModel from './models/user'
 
-const App= () => {
-  const [currentUser, setCurrentUser] = useState(localStorage.getItem('id'))
-
-  const [currentUserName, setCurrentUserName] = useState(localStorage.getItem('name'))
-
-
-  const storeUser = (userId, userName) => {
-    localStorage.setItem('id', userId)
-    localStorage.setItem('name', userName)
-    setCurrentUser(userId)
-    setCurrentUserName(userName)
-  }
-
-
-  const logout = (event) => {
-    event.preventDefault()
-    localStorage.removeItem('id')
-    localStorage.removeItem('name')
-
-    UserModel.logout()
-      .then(res => {
-        setCurrentUser(null)
-      })
-  }
-
-
-
+import React from 'react';
+// Components
+import Header from './components/Header';
+import Routes from './config/Routes';
+import Footer from './components/Footer';
+// Styling
+import './App.css';
+// ContextProviders
+import AuthContextProvider from './contexts/AuthContext';
+function App() {
   return (
     <div className="App">
-
-      <Header
-
-        currentUser={currentUser}
-        currentUserName={currentUserName}
-        logout={logout}
-      />
-      <Routes
-        currentUser={currentUser}
-        currentUserName={currentUserName}
-
-        storeUser={storeUser}
-      />
-
+    <AuthContextProvider>
+      <Header />
+      <Routes />
       <Footer />
+    </AuthContextProvider>
     </div>
   );
 }
+export default App;
 
-export default App 

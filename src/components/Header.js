@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
 import './Header.scss'
+import {AuthContext} from '../contexts/AuthContext'
 
-const Header = (props) => {
+const Header = () => {
+  const {currentUser, currentUserName, logout} = useContext(AuthContext)
   return (
     <header>
       <div className="logo">
@@ -10,10 +12,10 @@ const Header = (props) => {
       </div>
       <div className="links">
         <ul>
-          { props.currentUser ? 
+          {currentUser ? 
             <>
               <li><Link to={'/profile'}>Profile</Link></li>
-              <li><a href="/logout" onClick={ props.logout }>Log Out</a></li>
+              <li><a href="/" onClick={ logout }>Log Out</a></li>
             </>
           :
             <>

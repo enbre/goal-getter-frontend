@@ -1,36 +1,39 @@
 import React, { useState } from 'react'
-import GoalModel from '../models/goal'
+import TaskModel from '../models/task'
 
-const UpdateGoal = ({goal, fetchData}) => {
-   const [goalTitle, setGoalTitle] = useState(goal.title)
+const UpdateTask = ({task, fetchTasks}) => {
+   const [taskTitle, setTaskTitle] = useState(task.title)
 
       const handleSubmit = (event) => {
         
-      GoalModel.update({
-         ...goal, 
-         title: goalTitle
+      TaskModel.update({
+         ...task, 
+         title: taskTitle
       })
-      fetchData()
+      fetchTasks()
    }
 
    return (
-    <div className="modal fade" id={`editModal${goal.id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal fade" id={`editModal${task.id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {/* <div className="modal fade" id={`editModalTest`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> */}
          <div className="modal-dialog" role="document">
             <div className="modal-content">
                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Edit your goal!</h5>
+                  <h5 className="modal-title" id="exampleModalLabel">Edit your task!</h5>
                   <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                   </button>
                </div>
                <div className="modal-body">
-                  <form onSubmit={handleSubmit}>
+                  <form 
+                  onSubmit={handleSubmit}
+                  >
                      <input
                         type="text"
                         className="form-control"
                         style={{ margin: "10px" }}
-                        value={goalTitle}
-                        onChange={e => setGoalTitle(e.target.value)}
+                        value={taskTitle}
+                        onChange={e => setTaskTitle(e.target.value)}
                      >
                      </input>
                      <button 
@@ -53,4 +56,4 @@ const UpdateGoal = ({goal, fetchData}) => {
 
 }
 
-export default UpdateGoal
+export default UpdateTask

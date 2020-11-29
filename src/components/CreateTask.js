@@ -15,14 +15,12 @@ class CreateTask extends Component {
    onFormSubmit = (event) => {
       event.preventDefault()
       let task = this.state.task
-      // 'createGoal' function is defined in Profile, and passed to this component as props
-      // will need to copy & modify some functions to either task or this file
       this.props.createTask(task)
       this.setState({
          task: ''
       })
    }
-
+ 
    render() {
       return (
 

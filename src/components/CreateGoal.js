@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class CreateGoals extends Component {
+class CreateGoal extends Component {
 
    state = {
       goal: ''
@@ -15,12 +15,11 @@ class CreateGoals extends Component {
    onFormSubmit = (event) => {
       event.preventDefault()
       let goal = this.state.goal
-      // 'createGoal' function is defined in Profile, and passed to this component as props
       this.props.createGoal(goal)
       this.setState({
          goal: ''
       })
-   }
+   } 
 
    render() {
       return (
@@ -54,4 +53,4 @@ class CreateGoals extends Component {
    }
 }
 
-export default CreateGoals
+export default CreateGoal
