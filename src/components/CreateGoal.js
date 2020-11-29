@@ -15,7 +15,6 @@ class CreateGoal extends Component {
    onFormSubmit = (event) => {
       event.preventDefault()
       let goal = this.state.goal
-      // 'createGoal' function is defined in Profile, and passed to this component as props
       this.props.createGoal(goal)
       this.setState({
          goal: ''
