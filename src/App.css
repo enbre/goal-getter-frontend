@@ -51,14 +51,18 @@ h3{
 .card-text{
   display: inline;
 }
+.register-form{
+  /* display: flex; */
+}
 .task-form{
   display: flex;
+  align-items: center;
+  align-content: center;
   text-align: left;
-  /* flex-direction: row; */
   margin: 10px 0 10px 30px;
 }
 .task-button{
   margin: 0 10px;
-  align-self: flex-end;
-  text-align: right;
+  /* align-self: flex-end; */
+  /* text-align: right; */
 }

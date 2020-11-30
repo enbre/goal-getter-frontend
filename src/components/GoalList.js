@@ -30,13 +30,13 @@ const GoalList = () => {
    }
 
    let allGoals = goals.map((goal, i) => {
-      if (currentUser === goal.userId) {
+      // if (currentUser === goal.userId) {
          return <Goal
             key={i}
             goal={goal}
             fetchData={fetchData}
          />
-      }
+      // }
    })
 
 

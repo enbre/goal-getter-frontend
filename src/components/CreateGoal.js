@@ -34,6 +34,7 @@ class CreateGoal extends Component {
                         value={this.state.goal}
                         className="form-control"
                         aria-describedby="button-addon2-sm"
+                        required
                      />
                      <div className="input-group-append">
                         <button

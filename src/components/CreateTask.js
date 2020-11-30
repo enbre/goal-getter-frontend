@@ -35,6 +35,7 @@ class CreateTask extends Component {
                         value={this.state.task}
                         className="form-control"
                         aria-describedby="button-addon2-sm"
+                        required
                      />
                      <div className="input-group-append">
                         <button
