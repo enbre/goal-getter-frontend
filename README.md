@@ -79,7 +79,7 @@ export default AuthContextProvider;
 ```
 ---
 ## Backend repo
-#### Can be found [here:] (https://github.com/enbre/goals-backend )
+#### Can be found [here:](https://github.com/enbre/goals-backend)
 
 ---
 ## Credits
