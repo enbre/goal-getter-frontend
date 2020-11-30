@@ -15,11 +15,10 @@ const UpdateTask = ({task, fetchTasks}) => {
 
    return (
     <div className="modal fade" id={`editModal${task.id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    {/* <div className="modal fade" id={`editModalTest`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> */}
          <div className="modal-dialog" role="document">
             <div className="modal-content">
                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Edit your task!</h5>
+                  <h5 className="modal-title" >Edit your task!</h5>
                   <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                   </button>

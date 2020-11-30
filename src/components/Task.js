@@ -1,34 +1,27 @@
 import React from 'react'
 import UpdateTask from './UpdateTask'
+import TaskModel from '../models/task'
 
 const Task = (props) => {
+
+   const handleDelete = (event) => {
+      TaskModel.delete(props.task.id)
+      props.fetchTasks()
+   }
+
    return (
       <div className="task-form">
-
-         <p 
-            className="card-title"
-            style={{textDecoration: props.task.completed ? 'line-through' : 'none'}}
-         >
-            <input 
-               type="checkbox" 
-               className="form-check-input" 
-               id="dropdownCheck2"
-               // onClick={props.completedTask}
-               // onChange={props.completedTask}
-            />
-            {props.task.title}
-         </p>
-         {/* <h5 className="card-title">Another hard coded task in Task.js!</h5> */}
+         <h6 className="card-title">{props.task.title}</h6>
          <button
-            className="btn btn-outline-info btn-sm goals-button"
+            className="btn btn-outline-info btn-sm task-button"
             data-toggle="modal"
             data-target={`#editModal${props.task.id}`}
-            // data-target={`#editModalTest`}
          >Edit</button>
          <UpdateTask
             task={props.task}
             fetchTasks={props.fetchTasks}
          />
+          <button className="btn btn-outline-info btn-sm task-button" onClick={handleDelete}>Delete</button>
       </div>
    )
 }

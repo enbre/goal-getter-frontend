@@ -21,7 +21,9 @@ h3{
 }
 .goals-button{
   margin: 0 10px;
+  /* justify-self: right; */
 }
+
 
 .App {
   text-align: center;
@@ -50,6 +52,13 @@ h3{
   display: inline;
 }
 .task-form{
+  display: flex;
   text-align: left;
-  margin-left: 30px;
+  /* flex-direction: row; */
+  margin: 10px 0 10px 30px;
+}
+.task-button{
+  margin: 0 10px;
+  align-self: flex-end;
+  text-align: right;
 }
