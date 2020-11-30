@@ -5,11 +5,9 @@ import Home from '../pages/Home'
 import Register from '../pages/Register'
 import Login from '../pages/Login'
 import Profile from '../pages/Profile'
-import GoalList from '../components/GoalList'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const currentUser = localStorage.getItem('id')
-  const currentUserName = localStorage.getItem('name')
 
   return  <Route { ...rest } render={ props => {
             return currentUser ? <Component { ...rest } { ...props } /> : <Redirect to="/login" />

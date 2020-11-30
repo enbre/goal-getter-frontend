@@ -11,7 +11,9 @@ const Task = (props) => {
 
    return (
       <div className="task-form">
+
          <h6 className="card-title">{props.task.title}</h6>
+
          <button
             className="btn btn-outline-info btn-sm task-button"
             data-toggle="modal"

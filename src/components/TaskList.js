@@ -27,7 +27,6 @@ const TaskList = (props) => {
    useEffect(() => {
       fetchTasks()
    }, [])
-   console.log(taskList[0]);
    
    return (
       <>
