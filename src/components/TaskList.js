@@ -22,7 +22,6 @@ const TaskList = (props) => {
          .then(() => {
             fetchTasks()
          })
-
    }
 
    useEffect(() => {
@@ -53,7 +52,6 @@ const TaskList = (props) => {
       <hr />
       <CreateTask createTask={createTask} />
       </>
-
    )
 }
 
