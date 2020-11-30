@@ -27,7 +27,6 @@ const TaskList = (props) => {
    useEffect(() => {
       fetchTasks()
    }, [])
-   console.log(taskList[0]);
    
    return (
       <>
@@ -44,7 +43,6 @@ const TaskList = (props) => {
                      <Task 
                         key={task.id} 
                         task={task}
-                        // completedTask={completedTask}
                      />
                   )
                }

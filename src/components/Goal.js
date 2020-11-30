@@ -1,14 +1,10 @@
-import React, {useContext} from "react"
+import React from "react"
 import TaskList from './TaskList'
 import GoalModel from '../models/goal'
-import TaskModel from '../models/task'
 import UpdateGoal from './UpdateGoal'
-import CreateTask from "./CreateTask"
-import { AuthContext } from "../contexts/AuthContext"
 
 
 const Goal = (props) => {
-   const {currentUser,currentUserName} = useContext(AuthContext)
   
    const handleDelete = (event) => {
       // event.preventDefaut()
