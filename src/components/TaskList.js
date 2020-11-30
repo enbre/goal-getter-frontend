@@ -43,6 +43,8 @@ const TaskList = (props) => {
                      <Task 
                         key={task.id} 
                         task={task}
+                        fetchTasks={fetchTasks}
+                        // completedTask={completedTask}
                      />
                   )
                }
