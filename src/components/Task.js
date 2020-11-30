@@ -2,24 +2,22 @@ import React from 'react'
 import UpdateTask from './UpdateTask'
 
 const Task = (props) => {
-
-   // console.log('line6, task.js', props)
-
-
-   // console.log(allTasks)
-
    return (
       <div className="task-form">
 
-         <input 
-            // style={{textDecoration:this.props.task.completed ? "line-through": "none" }} 
-            type="checkbox" 
-            className="form-check-input" 
-            id="dropdownCheck2"
-
-            // onChange={completedTask}
-         />
-         <h6 className="card-title">{props.task.title}</h6>
+         <p 
+            className="card-title"
+            style={{textDecoration: props.task.completed ? 'line-through' : 'none'}}
+         >
+            <input 
+               type="checkbox" 
+               className="form-check-input" 
+               id="dropdownCheck2"
+               // onClick={props.completedTask}
+               // onChange={props.completedTask}
+            />
+            {props.task.title}
+         </p>
          {/* <h5 className="card-title">Another hard coded task in Task.js!</h5> */}
          <button
             className="btn btn-outline-info btn-sm goals-button"
