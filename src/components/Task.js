@@ -2,9 +2,9 @@ import React from 'react'
 import UpdateTask from './UpdateTask'
 
 const Task = (props) => {
-
    // console.log('line6, task.js', props)
 
+   
 
    // console.log(allTasks)
 
@@ -17,7 +17,7 @@ const Task = (props) => {
             className="form-check-input" 
             id="dropdownCheck2"
 
-            // onChange={completedTask}
+            // onChange={props.completedTask}
          />
          <h6 className="card-title">{props.task.title}</h6>
          {/* <h5 className="card-title">Another hard coded task in Task.js!</h5> */}

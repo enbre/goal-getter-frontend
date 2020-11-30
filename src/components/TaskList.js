@@ -1,72 +1,58 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { AuthContext } from '../contexts/AuthContext'
+import React, { useState, useEffect } from 'react'
 import Task from './Task'
 import TaskModel from '../models/task'
 import CreateTask from './CreateTask'
+import GoalList from './GoalList'
 
 const TaskList = (props) => {
-   const { currentUser, currentUserName } = useContext(AuthContext)
-   // console.log('line 9',props)
-   const [tasks, setTasks] = useState([])
-
-   useEffect(() => {
-      fetchTasks()
-   }, [])
-
-   // scoped globally so it can be rendered in return but defined within fetchTasks
-   // let allTasks
-   
-
-   const fetchTasks = async () => {
-      const res = await TaskModel.all()
-      // we need some way of filtering so only the tasks connected to a specific goal are called:
-      setTasks(res.tasks)
-      console.log('line 25, tasklist', res.tasks) // gets an array of all tasks, regardless of goalId
-      
-      // if (props.goal.id === res.tasks.goalId) {
-         // allTasks = tasks.map((task, i) => {
-         //    return <Task
-         //    key={i}
-         //    task={task}
-         //    fetchTasks={fetchTasks}
-         // />
-      // })
-   // }
-   }
-
-   const createTask = async (task) => {
-      const newTask = {
-         title: task,
-         goalId: props.goal.id,
-         completed: false
-      }
-      await TaskModel.create(newTask)
-         .then((res) => {
-            console.log('line 43 tasklist.js', res.task) // gets the new task created
-            TaskModel.all(res.task)
-            tasks.push(res.task)
-            fetchTasks()
-         })
-
-   }
-
-   let allTasks = tasks.map((task, i) => {
-      // if (props.goal.id === res.tasks.goalId) {
-      
-         return <Task
-         key={i}
-         task={task}
-         fetchTasks={fetchTasks}
-      />
-      // }
-   })
-
-
-   const completedTask = (id) =>{
-      setTasks(props.task.completed)
-   }
+   const [taskList, setTaskList] = useState([])
 
   
+   
+   const fetchTasks = async () => {
+      const response = await TaskModel.all()
+      const tasks = response.tasks
+      setTaskList(tasks);
+      console.log(tasks[0])
+   }
+
+   // const createTask = async (task) => {
+   //    const newTask = {
+   //       title: task,
+   //       goalId: props.goal.id,
+   //       completed: false
+   //    }
+   //    await TaskModel.create(newTask)
+   //       .then((res) => {
+   //          console.log('line 43 tasklist.js', res.task) // gets the new task created
+   //          TaskModel.all(res.task)
+   //          tasks.push(res.task)
+   //          fetchTasks()
+   //       })
+
+   // }
+
+   // let allTasks = tasks.map((task, i) => {
+   //    // if (props.goal.id === res.tasks.goalId) {
+      
+   //       return <Task
+   //       key={i}
+   //       task={task}
+   //       fetchTasks={fetchTasks}
+   //       // completed={completedTask}
+   //    />
+   //    // }
+   // })
+
+
+   // const completedTask = (id) =>{
+   //    setTasks(props.tasks.map(checked =>{
+   //       if(checked.id === id){
+   //          checked.completed = !checked.completed
+   //       }
+   //       return checked
+   //    }))
+   // }
 
    // first pass at this function:
    // const getTasks = async () => {
@@ -75,31 +61,20 @@ const TaskList = (props) => {
    //    const taskArray = await res.json()
    //    setTasks(taskArray)
    // }
+   useEffect(() => {
+      fetchTasks()
+   }, [])
 
    return (
-      <>
-         <p className="task-form">
-            <button className="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target={`#collapse${props.goal.id}`} aria-expanded="false" aria-controls="collapseExample">
-               See your tasks
-         </button>
-         </p>
-         <div className="collapse" id={`collapse${props.goal.id}`}>
-            <div >
-               {allTasks}
-               {/* <Task allTasks={allTasks}/> */}
-            </div>
-         </div>
-         <hr />
-         <CreateTask createTask={createTask} />
-      </>
-
-
-
-
-
-
-
+      <div>
+         {taskList.map(task =>{
+               if(task.id === props.goal.id) {
+                  return <p key={task.id}>{task.title}</p>
+               }
+         })}
+      </div>
    )
 }
 
 export default TaskList
+
