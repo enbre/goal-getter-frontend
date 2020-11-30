@@ -5,8 +5,8 @@ import CreateGoal from './CreateGoal'
 import GoalModel from '../models/goal'
 
 
-const GoalList = (props) => {
-   const { currentUser, currentUserName } = useContext(AuthContext)
+const GoalList = () => {
+   const { currentUser} = useContext(AuthContext)
 
    const [goals, setGoals] = useState([])
 
