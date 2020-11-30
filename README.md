@@ -87,3 +87,5 @@ export default AuthContextProvider;
 ## Future development
 #### Additions to come will be minor debugging, the ability to drag goals to reorder, and adding user color theme options.
 
+### Planning Documentation
+https://trello.com/b/r3hzoG3E/team-meta
