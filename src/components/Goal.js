@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, {useContext} from "react"
 import TaskList from './TaskList'
 import GoalModel from '../models/goal'
 import TaskModel from '../models/task'
@@ -15,6 +15,7 @@ const Goal = (props) => {
       GoalModel.delete(props.goal.id)
       props.fetchData()
    }
+
 
    return (
       <div >

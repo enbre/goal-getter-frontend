@@ -14,7 +14,7 @@ const Header = () => {
         <ul>
           {currentUser ? 
             <>
-              <li><Link to={'/profile'}>Profile</Link></li>
+              <li><Link to={'/profile'}>{currentUserName}'s Profile</Link></li>
               <li><a href="/" onClick={ logout }>Log Out</a></li>
             </>
           :
