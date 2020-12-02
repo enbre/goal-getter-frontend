@@ -39,7 +39,7 @@ const Login = () => {
   if (currentUser) return <Redirect to='/profile' />
 
   return (
-    <div>
+    <div className='login-form'>
       <h4>Login</h4>
       <form onSubmit={ handleSubmit }>
         <div className="form-group">

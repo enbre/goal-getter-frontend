@@ -44,7 +44,6 @@ const TaskList = (props) => {
                         key={task.id} 
                         task={task}
                         fetchTasks={fetchTasks}
-                        // completedTask={completedTask}
                      />
                   )
                }

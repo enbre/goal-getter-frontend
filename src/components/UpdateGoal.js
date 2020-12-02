@@ -10,7 +10,7 @@ const UpdateGoal = ({goal, fetchData}) => {
          ...goal, 
          title: goalTitle
       })
-      fetchData()
+      fetchData() 
    }
 
    return (
