@@ -18,7 +18,21 @@
 #### Users create an account and logs on, then creates goals and tasks (steps to acheive goals). Both goals and tasks can be edited or deleted.
 
 
-#### *  screenshots:
+####  Wireframes:
+
+#### ![wireframe 1](./images/wire1.png) ![wireframe 2](./images/wire2.png) ![wireframe 3](./images/wire3.png)
+
+
+####  ERD:
+
+####  ![erd](./images/erd.png)
+
+
+## Planning Documentation
+#### Can be found [here.](https://trello.com/b/r3hzoG3E/team-meta)
+
+
+####  Screenshots:
 
 #### ![siteScreenshot 1](./images/screenshot1.png) ![siteScreenshot 2](./images/screenshot2.png) ![siteScreenshot 3](./images/screenshot3.png)
 
@@ -79,7 +93,7 @@ export default AuthContextProvider;
 ```
 ---
 ## Backend repo
-#### Can be found [here:](https://github.com/enbre/goals-backend)
+#### Can be found [here.](https://github.com/enbre/goals-backend)
 
 ---
 ## Credits
@@ -90,5 +104,4 @@ export default AuthContextProvider;
 ## Future development
 #### Additions to come will be minor debugging, the ability to drag goals to reorder, and adding user color theme options.
 
-### Planning Documentation
-https://trello.com/b/r3hzoG3E/team-meta
+
