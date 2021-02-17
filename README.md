@@ -1,4 +1,4 @@
-# Goal Getter!
+# Goal Getter
 
 ### A basic goal setting app that allows you to break your goals down into simple tasks to complete.
 
@@ -15,7 +15,7 @@
 ---
 ## User Stories 
 
-#### Users create an account and logs on, then creates goals and tasks (steps to acheive goals). Both goals and tasks can be edited or deleted.
+#### Users create an account and logs on, then creates goals and tasks (steps to achieve goals). Both goals and tasks can be edited or deleted.
 
 
 ####  Wireframes:
